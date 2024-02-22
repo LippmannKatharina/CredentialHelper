@@ -1,1104 +1,128 @@
 <!DOCTYPE html>
-<html class="ltr" dir="ltr" lang="de-DE">
-    <head>
-        <title>Login Coder</title>
-        <meta content="initial-scale=1.0, width=device-width" name="viewport" />
-        <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
-        <script type="importmap">{"imports":{"react-dom":"/o/frontend-js-react-web/__liferay__/exports/react-dom.js","prop-types":"/o/frontend-js-react-web/__liferay__/exports/prop-types.js","react-dnd":"/o/frontend-js-react-web/__liferay__/exports/react-dnd.js","formik":"/o/frontend-js-react-web/__liferay__/exports/formik.js","react":"/o/frontend-js-react-web/__liferay__/exports/react.js","react-dnd-html5-backend":"/o/frontend-js-react-web/__liferay__/exports/react-dnd-html5-backend.js","classnames":"/o/frontend-js-react-web/__liferay__/exports/classnames.js"},"scopes":{}}</script><script data-senna-track="temporary">var Liferay = window.Liferay || {};Liferay.Icons = Liferay.Icons || {};Liferay.Icons.basePath = '/o/icons';Liferay.Icons.spritemap = 'https://portal.nordlb.de/o/nlb-bp-login-theme/images/clay/icons.svg';Liferay.Icons.systemSpritemap = 'https://portal.nordlb.de/o/nlb-bp-login-theme/images/clay/icons.svg';</script>
-        <script data-senna-track="permanent" src="/combo?browserId=chrome&minifierType=js&languageId=de_DE&t=1702044912405&/o/frontend-js-jquery-web/jquery/jquery.min.js&/o/frontend-js-jquery-web/jquery/init.js&/o/frontend-js-jquery-web/jquery/ajax.js&/o/frontend-js-jquery-web/jquery/bootstrap.bundle.min.js&/o/frontend-js-jquery-web/jquery/collapsible_search.js&/o/frontend-js-jquery-web/jquery/fm.js&/o/frontend-js-jquery-web/jquery/form.js&/o/frontend-js-jquery-web/jquery/popper.min.js&/o/frontend-js-jquery-web/jquery/side_navigation.js" type="text/javascript"></script>
-        <link data-senna-track="temporary" href="https://portal.nordlb.de" rel="canonical" />
-        <link data-senna-track="temporary" href="https://portal.nordlb.de/en/" hreflang="en-US" rel="alternate" />
-        <link data-senna-track="temporary" href="https://portal.nordlb.de" hreflang="de-DE" rel="alternate" />
-        <link data-senna-track="temporary" href="https://portal.nordlb.de" hreflang="x-default" rel="alternate" />
-        <meta property="og:locale" content="de_DE">
-        <meta property="og:locale:alternate" content="de_DE">
-        <meta property="og:locale:alternate" content="en_US">
-        <meta property="og:site_name" content="Liferay DXP">
-        <meta property="og:title" content="Login - Liferay DXP">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://portal.nordlb.de">
-        <link href="https://portal.nordlb.de/o/nlb-bp-login-theme/images/favicon.ico" rel="icon" />
-        <link class="lfr-css-file" data-senna-track="temporary" href="https://portal.nordlb.de/o/nlb-bp-login-theme/css/clay.css?browserId=chrome&amp;themeId=nordlbbplogintheme_WAR_nlbbplogintheme&amp;minifierType=css&amp;languageId=de_DE&amp;t=1702044836000" id="liferayAUICSS" rel="stylesheet" type="text/css" />
-        <link href="/combo?browserId=chrome&amp;minifierType=css&amp;themeId=nordlbbplogintheme_WAR_nlbbplogintheme&amp;languageId=de_DE&amp;com_liferay_analytics_reports_web_internal_portlet_AnalyticsReportsPortlet:%2Fo%2Fanalytics-reports-web%2Fcss%2Fmain.css&amp;com_liferay_product_navigation_product_menu_web_portlet_ProductMenuPortlet:%2Fo%2Fproduct-navigation-product-menu-web%2Fcss%2Fmain.css&amp;de_nlb_bp_header_LanguageSelectorPortlet:%2Fo%2Fde.nlb.bp.portal-header-portlet%2Flanguage%2Fcss%2Fmain.css&amp;t=1702044836000" rel="stylesheet" type="text/css"
-             data-senna-track="temporary" id="7e816b69" />
-            <script data-senna-track="temporary" type="text/javascript">
-                // <![CDATA[
-                    var Liferay = Liferay || {};
-                    Liferay.Browser = {
-                        acceptsGzip: function() {
-                            return true;
-                        },
-                        getMajorVersion: function() {
-                            return 119.0;
-                        },
-                        getRevision: function() {
-                            return '537.36';
-                        },
-                        getVersion: function() {
-                            return '119.0';
-                        },
-                        isAir: function() {
-                            return false;
-                        },
-                        isChrome: function() {
-                            return true;
-                        },
-                        isEdge: function() {
-                            return false;
-                        },
-                        isFirefox: function() {
-                            return false;
-                        },
-                        isGecko: function() {
-                            return true;
-                        },
-                        isIe: function() {
-                            return false;
-                        },
-                        isIphone: function() {
-                            return false;
-                        },
-                        isLinux: function() {
-                            return false;
-                        },
-                        isMac: function() {
-                            return false;
-                        },
-                        isMobile: function() {
-                            return false;
-                        },
-                        isMozilla: function() {
-                            return false;
-                        },
-                        isOpera: function() {
-                            return false;
-                        },
-                        isRtf: function() {
-                            return true;
-                        },
-                        isSafari: function() {
-                            return true;
-                        },
-                        isSun: function() {
-                            return false;
-                        },
-                        isWebKit: function() {
-                            return true;
-                        },
-                        isWindows: function() {
-                            return true;
-                        }
-                    };
-                    Liferay.Data = Liferay.Data || {};
-                    Liferay.Data.ICONS_INLINE_SVG = true;
-                    Liferay.Data.NAV_SELECTOR = '#navigation';
-                    Liferay.Data.NAV_SELECTOR_MOBILE = '#navigationCollapse';
-                    Liferay.Data.isCustomizationView = function() {
-                        return false;
-                    };
-                    Liferay.Data.notices = [
-                    ];
-                    (function () {
-                        var available = {};
-                        var direction = {};
-                            available['de_DE'] = 'Deutsch\x20\x28Deutschland\x29';
-                            direction['de_DE'] = 'ltr';
-                            available['en_US'] = 'Englisch\x20\x28Vereinigte\x20Staaten\x29';
-                            direction['en_US'] = 'ltr';
-                        Liferay.Language = {
-                            available,
-                            direction,
-                            get: function(key) {
-                                return key;
-                            }
-                        };
-                    })();
-                    var featureFlags = {"LPS-165493":"false","COMMERCE-9410":"false","LRAC-10632":"false","LPS-158776":"false","LPS-158259":"false","LPS-114786":"false","COMMERCE-8087":"false","LPS-153324":"false","LRAC-10757":"false","LPS-161364":"false","LPS-156421":"false","LPS-157670":"false","COMMERCE-5898":"false","LPS-166918":"false","LPS-155692":"false","LPS-166036":"false","LPS-162133":"false","LPS-148804":"false","LPS-144527":"false","COMMERCE-8949":"false","LPS-163688":"false","LPS-145112":"false","LPS-165482":"false","LPS-170670":"false","LPS-169981":"false","LPS-163118":"false","LPS-155284":"false","LPS-162964":"false","LPS-162966":"false","LPS-158675":"false","LPS-159643":"false","LPS-135430":"false","LPS-164948":"false","LPS-142518":"false","LPS-165476":"false","LPS-167932":"false","LPS-162765":"false"};
-                    Liferay.FeatureFlags = Object.keys(featureFlags).reduce(
-                        (acc, key) => ({
-                            ...acc, [key]: featureFlags[key] === 'true'
-                        }), {}
-                    );
-                    Liferay.PortletKeys = {
-                        DOCUMENT_LIBRARY: 'com_liferay_document_library_web_portlet_DLPortlet',
-                        DYNAMIC_DATA_MAPPING: 'com_liferay_dynamic_data_mapping_web_portlet_DDMPortlet',
-                        ITEM_SELECTOR: 'com_liferay_item_selector_web_portlet_ItemSelectorPortlet'
-                    };
-                    Liferay.PropsValues = {
-                        JAVASCRIPT_SINGLE_PAGE_APPLICATION_TIMEOUT: 0,
-                        UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE: 104857600
-                    };
-                    Liferay.ThemeDisplay = {
-                            getLayoutId: function() {
-                                return '2';
-                            },
-                            getLayoutRelativeControlPanelURL: function() {
-                                return '/group/portal/~/control_panel/manage';
-                            },
-                            getLayoutRelativeURL: function() {
-                                return '/web/portal/login';
-                            },
-                            getLayoutURL: function() {
-                                return 'https://portal.nordlb.de/web/portal/login';
-                            },
-                            getParentLayoutId: function() {
-                                return '0';
-                            },
-                            isControlPanel: function() {
-                                return false;
-                            },
-                            isPrivateLayout: function() {
-                                return 'false';
-                            },
-                            isVirtualLayout: function() {
-                                return false;
-                            },
-                        getBCP47LanguageId: function() {
-                            return 'de-DE';
-                        },
-                        getCanonicalURL: function() {
-                            return 'https\x3a\x2f\x2fportal\x2enordlb\x2ede';
-                        },
-                        getCDNBaseURL: function() {
-                            return 'https://portal.nordlb.de';
-                        },
-                        getCDNDynamicResourcesHost: function() {
-                            return '';
-                        },
-                        getCDNHost: function() {
-                            return '';
-                        },
-                        getCompanyGroupId: function() {
-                            return '20123';
-                        },
-                        getCompanyId: function() {
-                            return '20097';
-                        },
-                        getDefaultLanguageId: function() {
-                            return 'de_DE';
-                        },
-                        getDoAsUserIdEncoded: function() {
-                            return '';
-                        },
-                        getLanguageId: function() {
-                            return 'de_DE';
-                        },
-                        getParentGroupId: function() {
-                            return '20121';
-                        },
-                        getPathContext: function() {
-                            return '';
-                        },
-                        getPathImage: function() {
-                            return '/image';
-                        },
-                        getPathJavaScript: function() {
-                            return '/o/frontend-js-web';
-                        },
-                        getPathMain: function() {
-                            return '/c';
-                        },
-                        getPathThemeImages: function() {
-                            return 'https://portal.nordlb.de/o/nlb-bp-login-theme/images';
-                        },
-                        getPathThemeRoot: function() {
-                            return '/o/nlb-bp-login-theme';
-                        },
-                        getPlid: function() {
-                            return '6';
-                        },
-                        getPortalURL: function() {
-                            return 'https://portal.nordlb.de';
-                        },
-                        getRealUserId: function() {
-                            return '20102';
-                        },
-                        getRemoteAddr: function() {
-                            return '10.244.8.14';
-                        },
-                        getRemoteHost: function() {
-                            return '10.244.8.14';
-                        },
-                        getScopeGroupId: function() {
-                            return '20121';
-                        },
-                        getScopeGroupIdOrLiveGroupId: function() {
-                            return '20121';
-                        },
-                        getSessionId: function() {
-                            return '';
-                        },
-                        getSiteAdminURL: function() {
-                            return 'https://portal.nordlb.de/group/portal/~/control_panel/manage?p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view';
-                        },
-                        getSiteGroupId: function() {
-                            return '20121';
-                        },
-                        getURLControlPanel: function() {
-                            return '/group/control_panel?refererPlid=6';
-                        },
-                        getURLHome: function() {
-                            return 'https\x3a\x2f\x2fportal\x2enordlb\x2ede\x2fweb\x2fportal';
-                        },
-                        getUserEmailAddress: function() {
-                            return '';
-                        },
-                        getUserId: function() {
-                            return '20102';
-                        },
-                        getUserName: function() {
-                            return '';
-                        },
-                        isAddSessionIdToURL: function() {
-                            return false;
-                        },
-                        isImpersonated: function() {
-                            return false;
-                        },
-                        isSignedIn: function() {
-                            return false;
-                        },
-                        isStagedPortlet: function() {
-                                    return false;
-                        },
-                        isStateExclusive: function() {
-                            return false;
-                        },
-                        isStateMaximized: function() {
-                            return false;
-                        },
-                        isStatePopUp: function() {
-                            return false;
-                        }
-                    };
-                    var themeDisplay = Liferay.ThemeDisplay;
-                    Liferay.AUI = {
-                        getCombine: function() {
-                            return true;
-                        },
-                        getComboPath: function() {
-                            return '/combo/?browserId=chrome&minifierType=&languageId=de_DE&t=1671032488381&';
-                        },
-                        getDateFormat: function() {
-                            return '%d.%m.%Y';
-                        },
-                        getEditorCKEditorPath: function() {
-                            return '/o/frontend-editor-ckeditor-web';
-                        },
-                        getFilter: function() {
-                            var filter = 'raw';
-                                    filter = 'min';
-                            return filter;
-                        },
-                        getFilterConfig: function() {
-                            var instance = this;
-            
-                            var filterConfig = null;
-            
-                            if (!instance.getCombine()) {
-                                filterConfig = {
-                                    replaceStr: '.js' + instance.getStaticResourceURLParams(),
-                                    searchExp: '\\.js$'
-                                };
-                            }
-                            return filterConfig;
-                        },
-                        getJavaScriptRootPath: function() {
-                            return '/o/frontend-js-web';
-                        },
-                        getPortletRootPath: function() {
-                            return '/html/portlet';
-                        },
-                        getStaticResourceURLParams: function() {
-                            return '?browserId=chrome&minifierType=&languageId=de_DE&t=1671032488381';
-                        }
-                    };
-                    Liferay.authToken = 'i8mKAaB7';
-                    Liferay.currentURL = '\x2f';
-                    Liferay.currentURLEncoded = '\x252F';
-                // ]]>
-            </script>
+<html>
+<head>
+    <title>Login Coder</title>
+    <style>
+        .container {
+            display: flex; /* Flex-Container verwenden */
+        }
+
+        .column {
+            flex: 1; /* Jede Spalte nimmt gleich viel Platz ein */
+            /*height: 100vh; /* Volle Höhe des Viewports */
+            height: 100vh;
+            min-height: 100vh;
+            padding: 0vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left-column {
+            background-color: #D2E9E5; /* Hintergrund für die linke Spalte */
+        }
+
+        .middle-column {
+            background-image: linear-gradient(to top left, #F7F7F7 50%, #D2E9E5 50%);
+             /* #D2E9E5; /* Hintergrund für die mittlere Spalte */
+        }
+
+        .right-column {
+            background-color: #F7F7F7; /* Hintergrund für die rechte Spalte */
+        }
+
+        .top-left-image {
+            position: absolute; /* Positionierung relativ zum nächstgelegenen positionierten Vorfahren (oder zum Viewport) */
+            width: 10vw;
+            top: 32px; /* Oben im Viewport */
+            left: 32px; /* Links im Viewport */
+        }
+
+        .image-building-left {
+            position: absolute; /* Positionierung relativ zum nächstgelegenen positionierten Vorfahren (oder zum Viewport) */
+            width: 32.66vh;
+            top: 33.44vh;
+            left: 9.92vw; /* Links im Viewport */
+        }
+
+        .login-container {
+            text-align: left;
+        }
+
+        .login-box [type="text"]{
+            padding: 20px;
+            display: inline-block;
+        }
+
+        .login-box code[type = "text"]{
+            margin-top: 10px;
+            padding: 5px;
+            width: 80%;
+        }
+
+        .login-box textfield {
+            display: block;
+            margin-top: 20px;
+            color: red;
+        }
         
-            <script data-senna-track="temporary" type="text/javascript">window.__CONFIG__= {basePath: '',combine: true, defaultURLParams: null, explainResolutions: false, exposeGlobal: false, logLevel: 'warn', moduleType: 'module', namespace:'Liferay', reportMismatchedAnonymousModules: 'warn', resolvePath: '/o/js_resolve_modules', url: '/combo/?browserId=chrome&minifierType=js&languageId=de_DE&t=1671032488381&', waitTimeout: 7000};</script><script data-senna-track="permanent" src="/o/frontend-js-loader-modules-extender/loader.js?&mac=kuyYLzgmJRuntKLenfFpZdHstco=&browserId=chrome&languageId=de_DE&minifierType=js" type="text/javascript"></script><script data-senna-track="permanent" src="/combo?browserId=chrome&minifierType=js&languageId=de_DE&t=1671032488381&/o/frontend-js-aui-web/aui/aui/aui-min.js&/o/frontend-js-aui-web/liferay/modules.js&/o/frontend-js-aui-web/liferay/aui_sandbox.js&/o/frontend-js-aui-web/aui/attribute-base/attribute-base-min.js&/o/frontend-js-aui-web/aui/attribute-complex/attribute-complex-min.js&/o/frontend-js-aui-web/aui/attribute-core/attribute-core-min.js&/o/frontend-js-aui-web/aui/attribute-observable/attribute-observable-min.js&/o/frontend-js-aui-web/aui/attribute-extras/attribute-extras-min.js&/o/frontend-js-aui-web/aui/event-custom-base/event-custom-base-min.js&/o/frontend-js-aui-web/aui/event-custom-complex/event-custom-complex-min.js&/o/frontend-js-aui-web/aui/oop/oop-min.js&/o/frontend-js-aui-web/aui/aui-base-lang/aui-base-lang-min.js&/o/frontend-js-aui-web/liferay/dependency.js&/o/frontend-js-aui-web/liferay/util.js&/o/frontend-js-web/liferay/dom_task_runner.js&/o/frontend-js-web/liferay/events.js&/o/frontend-js-web/liferay/lazy_load.js&/o/frontend-js-web/liferay/liferay.js&/o/frontend-js-web/liferay/global.bundle.js&/o/frontend-js-web/liferay/portlet.js&/o/frontend-js-web/liferay/workflow.js&/o/frontend-js-module-launcher/webpack_federation.js&/o/oauth2-provider-web/js/liferay.js" type="text/javascript"></script>
-            <script data-senna-track="temporary" type="text/javascript">window.Liferay = Liferay || {}; window.Liferay.OAuth2 = {getAuthorizeURL: function() {return 'https://portal.nordlb.de/o/oauth2/authorize';}, getBuiltInRedirectURL: function() {return 'https://portal.nordlb.de/o/oauth2/redirect';}, getIntrospectURL: function() { return 'https://portal.nordlb.de/o/oauth2/introspect';}, getTokenURL: function() {return 'https://portal.nordlb.de/o/oauth2/token';}, getUserAgentApplication: function(externalReferenceCode) {return Liferay.OAuth2._userAgentApplications[externalReferenceCode];}, _userAgentApplications: {}}</script><script data-senna-track="temporary" type="text/javascript">try {var MODULE_MAIN='item-selector-taglib@5.2.28/index.es';var MODULE_PATH='/o/item-selector-taglib';AUI().applyConfig({groups:{"item-selector-taglib":{base:MODULE_PATH+"/",combine:Liferay.AUI.getCombine(),filter:Liferay.AUI.getFilterConfig(),modules:{"liferay-image-selector":{path:"image_selector/js/image_selector.js",requires:["aui-base","liferay-item-selector-dialog","liferay-portlet-base","uploader"]}},root:MODULE_PATH+"/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='product-navigation-simulation-device@6.0.28/index';var MODULE_PATH='/o/product-navigation-simulation-device';AUI().applyConfig({groups:{"navigation-simulation-device":{base:MODULE_PATH+"/js/",combine:Liferay.AUI.getCombine(),filter:Liferay.AUI.getFilterConfig(),modules:{"liferay-product-navigation-simulation-device":{path:"product_navigation_simulation_device.js",requires:["aui-dialog-iframe-deprecated","aui-event-input","aui-modal","liferay-portlet-base","liferay-product-navigation-control-menu","liferay-util-window","liferay-widget-size-animation-plugin"]}},root:MODULE_PATH+"/js/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='@liferay/frontend-taglib@10.0.0/index';var MODULE_PATH='/o/frontend-taglib';AUI().applyConfig({groups:{"frontend-taglib":{base:MODULE_PATH+"/",combine:Liferay.AUI.getCombine(),filter:Liferay.AUI.getFilterConfig(),modules:{"liferay-management-bar":{path:"management_bar/js/management_bar.js",requires:["aui-component","liferay-portlet-base"]},"liferay-sidebar-panel":{path:"sidebar_panel/js/sidebar_panel.js",requires:["aui-base","aui-debounce","aui-parse-content","liferay-portlet-base"]}},root:MODULE_PATH+"/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='layout-taglib@12.0.1/index';var MODULE_PATH='/o/layout-taglib';AUI().applyConfig({groups:{"layout-taglib":{base:MODULE_PATH+"/",combine:Liferay.AUI.getCombine(),filter:Liferay.AUI.getFilterConfig(),modules:{"liferay-layouts-tree":{path:"layouts_tree/js/layouts_tree.js",requires:["aui-tree-view"]},"liferay-layouts-tree-check-content-display-page":{path:"layouts_tree/js/layouts_tree_check_content_display_page.js",requires:["aui-component","plugin"]},"liferay-layouts-tree-node-radio":{path:"layouts_tree/js/layouts_tree_node_radio.js",requires:["aui-tree-node"]},"liferay-layouts-tree-node-task":{path:"layouts_tree/js/layouts_tree_node_task.js",requires:["aui-tree-node"]},"liferay-layouts-tree-radio":{path:"layouts_tree/js/layouts_tree_radio.js",requires:["aui-tree-node","liferay-layouts-tree-node-radio"]},"liferay-layouts-tree-selectable":{path:"layouts_tree/js/layouts_tree_selectable.js",requires:["liferay-layouts-tree-node-task"]},"liferay-layouts-tree-state":{path:"layouts_tree/js/layouts_tree_state.js",requires:["aui-base"]}},root:MODULE_PATH+"/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='dynamic-data-mapping-web@5.0.70/index';var MODULE_PATH='/o/dynamic-data-mapping-web';!function(){const a=Liferay.AUI;AUI().applyConfig({groups:{ddm:{base:MODULE_PATH+"/js/",combine:Liferay.AUI.getCombine(),filter:a.getFilterConfig(),modules:{"liferay-ddm-form":{path:"ddm_form.js",requires:["aui-base","aui-datatable","aui-datatype","aui-image-viewer","aui-parse-content","aui-set","aui-sortable-list","json","liferay-form","liferay-layouts-tree","liferay-layouts-tree-radio","liferay-layouts-tree-selectable","liferay-map-base","liferay-translation-manager","liferay-util-window"]},"liferay-portlet-dynamic-data-mapping":{condition:{trigger:"liferay-document-library"},path:"main.js",requires:["arraysort","aui-form-builder-deprecated","aui-form-validator","aui-map","aui-text-unicode","json","liferay-menu","liferay-translation-manager","liferay-util-window","text"]},"liferay-portlet-dynamic-data-mapping-custom-fields":{condition:{trigger:"liferay-document-library"},path:"custom_fields.js",requires:["liferay-portlet-dynamic-data-mapping"]}},root:MODULE_PATH+"/js/"}}})}();
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='exportimport-web@5.0.55/index';var MODULE_PATH='/o/exportimport-web';AUI().applyConfig({groups:{exportimportweb:{base:MODULE_PATH+"/",combine:Liferay.AUI.getCombine(),filter:Liferay.AUI.getFilterConfig(),modules:{"liferay-export-import-export-import":{path:"js/main.js",requires:["aui-datatype","aui-dialog-iframe-deprecated","aui-modal","aui-parse-content","aui-toggler","aui-tree-view","liferay-portlet-base","liferay-util-window"]}},root:MODULE_PATH+"/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='commerce-product-content-web@4.0.76/index';var MODULE_PATH='/o/commerce-product-content-web';AUI().applyConfig({groups:{productcontent:{base:MODULE_PATH+"/js/",combine:Liferay.AUI.getCombine(),modules:{"liferay-commerce-product-content":{path:"product_content.js",requires:["aui-base","aui-io-request","aui-parse-content","liferay-portlet-base","liferay-portlet-url"]}},root:MODULE_PATH+"/js/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='commerce-frontend-impl@4.0.32/index';var MODULE_PATH='/o/commerce-frontend-impl';AUI().applyConfig({groups:{commercefrontend:{base:MODULE_PATH+"/js/",combine:Liferay.AUI.getCombine(),modules:{"liferay-commerce-frontend-asset-categories-selector":{path:"liferay_commerce_frontend_asset_categories_selector.js",requires:["aui-tree","liferay-commerce-frontend-asset-tag-selector"]},"liferay-commerce-frontend-asset-tag-selector":{path:"liferay_commerce_frontend_asset_tag_selector.js",requires:["aui-io-plugin-deprecated","aui-live-search-deprecated","aui-template-deprecated","aui-textboxlist-deprecated","datasource-cache","liferay-service-datasource"]},"liferay-commerce-frontend-management-bar-state":{condition:{trigger:"liferay-management-bar"},path:"management_bar_state.js",requires:["liferay-management-bar"]}},root:MODULE_PATH+"/js/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='portal-workflow-kaleo-designer-web@5.0.93/index';var MODULE_PATH='/o/portal-workflow-kaleo-designer-web';AUI().applyConfig({groups:{"kaleo-designer":{base:MODULE_PATH+"/designer/js/legacy/",combine:Liferay.AUI.getCombine(),filter:Liferay.AUI.getFilterConfig(),modules:{"liferay-kaleo-designer-autocomplete-util":{path:"autocomplete_util.js",requires:["autocomplete","autocomplete-highlighters"]},"liferay-kaleo-designer-definition-diagram-controller":{path:"definition_diagram_controller.js",requires:["liferay-kaleo-designer-field-normalizer","liferay-kaleo-designer-utils"]},"liferay-kaleo-designer-dialogs":{path:"dialogs.js",requires:["liferay-util-window"]},"liferay-kaleo-designer-editors":{path:"editors.js",requires:["aui-ace-editor","aui-ace-editor-mode-xml","aui-base","aui-datatype","aui-node","liferay-kaleo-designer-autocomplete-util","liferay-kaleo-designer-utils"]},"liferay-kaleo-designer-field-normalizer":{path:"field_normalizer.js",requires:["liferay-kaleo-designer-remote-services"]},"liferay-kaleo-designer-nodes":{path:"nodes.js",requires:["aui-datatable","aui-datatype","aui-diagram-builder","liferay-kaleo-designer-editors","liferay-kaleo-designer-utils"]},"liferay-kaleo-designer-remote-services":{path:"remote_services.js",requires:["aui-io","liferay-portlet-url"]},"liferay-kaleo-designer-templates":{path:"templates.js",requires:["aui-tpl-snippets-deprecated"]},"liferay-kaleo-designer-utils":{path:"utils.js",requires:[]},"liferay-kaleo-designer-xml-definition":{path:"xml_definition.js",requires:["aui-base","aui-component","dataschema-xml","datatype-xml"]},"liferay-kaleo-designer-xml-definition-serializer":{path:"xml_definition_serializer.js",requires:["escape","liferay-kaleo-designer-xml-util"]},"liferay-kaleo-designer-xml-util":{path:"xml_util.js",requires:["aui-base"]},"liferay-portlet-kaleo-designer":{path:"main.js",requires:["aui-ace-editor","aui-ace-editor-mode-xml","aui-tpl-snippets-deprecated","dataschema-xml","datasource","datatype-xml","event-valuechange","io-form","liferay-kaleo-designer-autocomplete-util","liferay-kaleo-designer-editors","liferay-kaleo-designer-nodes","liferay-kaleo-designer-remote-services","liferay-kaleo-designer-utils","liferay-kaleo-designer-xml-util","liferay-util-window"]}},root:MODULE_PATH+"/designer/js/legacy/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='staging-processes-web@5.0.37/index';var MODULE_PATH='/o/staging-processes-web';AUI().applyConfig({groups:{stagingprocessesweb:{base:MODULE_PATH+"/",combine:Liferay.AUI.getCombine(),filter:Liferay.AUI.getFilterConfig(),modules:{"liferay-staging-processes-export-import":{path:"js/main.js",requires:["aui-datatype","aui-dialog-iframe-deprecated","aui-modal","aui-parse-content","aui-toggler","aui-tree-view","liferay-portlet-base","liferay-util-window"]}},root:MODULE_PATH+"/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='portal-workflow-task-web@5.0.51/index';var MODULE_PATH='/o/portal-workflow-task-web';AUI().applyConfig({groups:{workflowtasks:{base:MODULE_PATH+"/js/",combine:Liferay.AUI.getCombine(),filter:Liferay.AUI.getFilterConfig(),modules:{"liferay-workflow-tasks":{path:"main.js",requires:["liferay-util-window"]}},root:MODULE_PATH+"/js/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='@liferay/document-library-web@6.0.121/document_library/js/index';var MODULE_PATH='/o/document-library-web';AUI().applyConfig({groups:{dl:{base:MODULE_PATH+"/document_library/js/legacy/",combine:Liferay.AUI.getCombine(),filter:Liferay.AUI.getFilterConfig(),modules:{"document-library-upload-component":{path:"DocumentLibraryUpload.js",requires:["aui-component","aui-data-set-deprecated","aui-overlay-manager-deprecated","aui-overlay-mask-deprecated","aui-parse-content","aui-progressbar","aui-template-deprecated","liferay-search-container","querystring-parse-simple","uploader"]}},root:MODULE_PATH+"/document_library/js/legacy/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='staging-taglib@7.0.28/index';var MODULE_PATH='/o/staging-taglib';AUI().applyConfig({groups:{stagingTaglib:{base:MODULE_PATH+"/",combine:Liferay.AUI.getCombine(),filter:Liferay.AUI.getFilterConfig(),modules:{"liferay-export-import-management-bar-button":{path:"export_import_entity_management_bar_button/js/main.js",requires:["aui-component","liferay-search-container","liferay-search-container-select"]}},root:MODULE_PATH+"/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='product-navigation-taglib@6.0.39/index';var MODULE_PATH='/o/product-navigation-taglib';AUI().applyConfig({groups:{controlmenu:{base:MODULE_PATH+"/",combine:Liferay.AUI.getCombine(),filter:Liferay.AUI.getFilterConfig(),modules:{"liferay-product-navigation-control-menu":{path:"control_menu/js/product_navigation_control_menu.js",requires:["aui-node","event-touch"]}},root:MODULE_PATH+"/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='journal-web@5.0.110/index';var MODULE_PATH='/o/journal-web';AUI().applyConfig({groups:{journal:{base:MODULE_PATH+"/js/",combine:Liferay.AUI.getCombine(),filter:Liferay.AUI.getFilterConfig(),modules:{"liferay-journal-navigation":{path:"navigation.js",requires:["aui-component","liferay-portlet-base","liferay-search-container"]},"liferay-portlet-journal":{path:"main.js",requires:["aui-base","aui-dialog-iframe-deprecated","liferay-portlet-base","liferay-util-window"]}},root:MODULE_PATH+"/js/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='@liferay/frontend-js-state-web@1.0.14/index';var MODULE_PATH='/o/frontend-js-state-web';AUI().applyConfig({groups:{state:{mainModule:MODULE_MAIN}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='@liferay/frontend-js-react-web@5.0.23/index';var MODULE_PATH='/o/frontend-js-react-web';AUI().applyConfig({groups:{react:{mainModule:MODULE_MAIN}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='frontend-js-components-web@2.0.43/index';var MODULE_PATH='/o/frontend-js-components-web';AUI().applyConfig({groups:{components:{mainModule:MODULE_MAIN}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='frontend-editor-alloyeditor-web@5.0.36/index';var MODULE_PATH='/o/frontend-editor-alloyeditor-web';AUI().applyConfig({groups:{alloyeditor:{base:MODULE_PATH+"/js/",combine:Liferay.AUI.getCombine(),filter:Liferay.AUI.getFilterConfig(),modules:{"liferay-alloy-editor":{path:"alloyeditor.js",requires:["aui-component","liferay-portlet-base","timers"]},"liferay-alloy-editor-source":{path:"alloyeditor_source.js",requires:["aui-debounce","liferay-fullscreen-source-editor","liferay-source-editor","plugin"]}},root:MODULE_PATH+"/js/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='portal-search-web@6.0.82/index';var MODULE_PATH='/o/portal-search-web';AUI().applyConfig({groups:{search:{base:MODULE_PATH+"/js/",combine:Liferay.AUI.getCombine(),filter:Liferay.AUI.getFilterConfig(),modules:{"liferay-search-bar":{path:"search_bar.js",requires:[]},"liferay-search-custom-filter":{path:"custom_filter.js",requires:[]},"liferay-search-facet-util":{path:"facet_util.js",requires:[]},"liferay-search-modified-facet":{path:"modified_facet.js",requires:["aui-form-validator","liferay-search-facet-util"]},"liferay-search-modified-facet-configuration":{path:"modified_facet_configuration.js",requires:["aui-node"]},"liferay-search-sort-configuration":{path:"sort_configuration.js",requires:["aui-node"]},"liferay-search-sort-util":{path:"sort_util.js",requires:[]}},root:MODULE_PATH+"/js/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='segments-simulation-web@3.0.23/index';var MODULE_PATH='/o/segments-simulation-web';AUI().applyConfig({groups:{segmentssimulation:{base:MODULE_PATH+"/js/",combine:Liferay.AUI.getCombine(),filter:Liferay.AUI.getFilterConfig(),modules:{"liferay-portlet-segments-simulation":{path:"main.js",requires:["aui-base","liferay-portlet-base"]}},root:MODULE_PATH+"/js/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='contacts-web@5.0.45/index';var MODULE_PATH='/o/contacts-web';AUI().applyConfig({groups:{contactscenter:{base:MODULE_PATH+"/js/",combine:Liferay.AUI.getCombine(),filter:Liferay.AUI.getFilterConfig(),modules:{"liferay-contacts-center":{path:"main.js",requires:["aui-io-plugin-deprecated","aui-toolbar","autocomplete-base","datasource-io","json-parse","liferay-portlet-base","liferay-util-window"]}},root:MODULE_PATH+"/js/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='calendar-web@5.0.60/index';var MODULE_PATH='/o/calendar-web';AUI().applyConfig({groups:{calendar:{base:MODULE_PATH+"/js/",combine:Liferay.AUI.getCombine(),filter:Liferay.AUI.getFilterConfig(),modules:{"liferay-calendar-a11y":{path:"calendar_a11y.js",requires:["calendar"]},"liferay-calendar-container":{path:"calendar_container.js",requires:["aui-alert","aui-base","aui-component","liferay-portlet-base"]},"liferay-calendar-date-picker-sanitizer":{path:"date_picker_sanitizer.js",requires:["aui-base"]},"liferay-calendar-interval-selector":{path:"interval_selector.js",requires:["aui-base","liferay-portlet-base"]},"liferay-calendar-interval-selector-scheduler-event-link":{path:"interval_selector_scheduler_event_link.js",requires:["aui-base","liferay-portlet-base"]},"liferay-calendar-list":{path:"calendar_list.js",requires:["aui-template-deprecated","liferay-scheduler"]},"liferay-calendar-message-util":{path:"message_util.js",requires:["liferay-util-window"]},"liferay-calendar-recurrence-converter":{path:"recurrence_converter.js",requires:[]},"liferay-calendar-recurrence-dialog":{path:"recurrence.js",requires:["aui-base","liferay-calendar-recurrence-util"]},"liferay-calendar-recurrence-util":{path:"recurrence_util.js",requires:["aui-base","liferay-util-window"]},"liferay-calendar-reminders":{path:"calendar_reminders.js",requires:["aui-base"]},"liferay-calendar-remote-services":{path:"remote_services.js",requires:["aui-base","aui-component","liferay-calendar-util","liferay-portlet-base"]},"liferay-calendar-session-listener":{path:"session_listener.js",requires:["aui-base","liferay-scheduler"]},"liferay-calendar-simple-color-picker":{path:"simple_color_picker.js",requires:["aui-base","aui-template-deprecated"]},"liferay-calendar-simple-menu":{path:"simple_menu.js",requires:["aui-base","aui-template-deprecated","event-outside","event-touch","widget-modality","widget-position","widget-position-align","widget-position-constrain","widget-stack","widget-stdmod"]},"liferay-calendar-util":{path:"calendar_util.js",requires:["aui-datatype","aui-io","aui-scheduler","aui-toolbar","autocomplete","autocomplete-highlighters"]},"liferay-scheduler":{path:"scheduler.js",requires:["async-queue","aui-datatype","aui-scheduler","dd-plugin","liferay-calendar-a11y","liferay-calendar-message-util","liferay-calendar-recurrence-converter","liferay-calendar-recurrence-util","liferay-calendar-util","liferay-scheduler-event-recorder","liferay-scheduler-models","promise","resize-plugin"]},"liferay-scheduler-event-recorder":{path:"scheduler_event_recorder.js",requires:["dd-plugin","liferay-calendar-util","resize-plugin"]},"liferay-scheduler-models":{path:"scheduler_models.js",requires:["aui-datatype","dd-plugin","liferay-calendar-util"]}},root:MODULE_PATH+"/js/"}}});
-            } catch(error) {console.error(error);}try {var MODULE_MAIN='invitation-invite-members-web@5.0.25/index';var MODULE_PATH='/o/invitation-invite-members-web';AUI().applyConfig({groups:{"invite-members":{base:MODULE_PATH+"/invite_members/js/",combine:Liferay.AUI.getCombine(),filter:Liferay.AUI.getFilterConfig(),modules:{"liferay-portlet-invite-members":{path:"main.js",requires:["aui-base","autocomplete-base","datasource-io","datatype-number","liferay-portlet-base","liferay-util-window","node-core"]}},root:MODULE_PATH+"/invite_members/js/"}}});
-            } catch(error) {console.error(error);}</script>
-            
-            
-            <script data-senna-track="temporary" type="text/javascript">
-                // <![CDATA[
-                // ]]>
-            </script>
-                <script src="/combo?browserId=chrome&amp;minifierType=js&amp;themeId=nordlbbplogintheme_WAR_nlbbplogintheme&amp;languageId=de_DE&amp;de_nlb_bp_announcements_AnnouncementsPortlet:%2Fo%2Fde.nlb.bp.announcements-portlet%2Fjs%2Fmain.js&amp;de_nlb_bp_header_NotificationCenterPortlet:%2Fo%2Fde.nlb.bp.portal-header-portlet%2Fjs%2Fmain.js&amp;de_nlb_bp_navigation_NavigationPortlet:%2Fo%2Fde.nlb.ea.navigation-portlet%2Fjs%2Fmain.js&amp;t=1702044836000" type="text/javascript" data-senna-track="temporary"></script>
-            <link class="lfr-css-file" data-senna-track="temporary" href="https://portal.nordlb.de/o/nlb-bp-login-theme/css/main.css?browserId=chrome&amp;themeId=nordlbbplogintheme_WAR_nlbbplogintheme&amp;minifierType=css&amp;languageId=de_DE&amp;t=1702044836000" id="liferayThemeCSS" rel="stylesheet" type="text/css" />
-                <style data-senna-track="temporary" type="text/css">
-                </style>
-            <link href="/o/commerce-frontend-js/styles/main.css" rel="stylesheet" type="text/css" /><style data-senna-track="temporary" type="text/css">
-            </style>
-            <script>
-            Liferay.Loader.require(
-            '@liferay/frontend-js-state-web@1.0.14',
-            function(FrontendJsState) {
-            try {
-            } catch (err) {
-                console.error(err);
-            }
-            });
-            </script><script>
-            Liferay.Loader.require(
-            'frontend-js-spa-web@5.0.35/init',
-            function(frontendJsSpaWebInit) {
-            try {
-            (function() {
-            frontendJsSpaWebInit.default({"navigationExceptionSelectors":":not([target=\"_blank\"]):not([data-senna-off]):not([data-resource-href]):not([data-cke-saved-href]):not([data-cke-saved-href])","cacheExpirationTime":-1,"clearScreensCache":false,"portletsBlacklist":["com_liferay_site_navigation_directory_web_portlet_SitesDirectoryPortlet","com_liferay_nested_portlets_web_portlet_NestedPortletsPortlet","com_liferay_questions_web_internal_portlet_QuestionsPortlet","com_liferay_account_admin_web_internal_portlet_AccountUsersRegistrationPortlet","com_liferay_portal_language_override_web_internal_portlet_PLOPortlet","com_liferay_login_web_portlet_LoginPortlet","com_liferay_login_web_portlet_FastLoginPortlet"],"validStatusCodes":[221,490,494,499,491,492,493,495,220],"debugEnabled":false,"loginRedirect":"","excludedPaths":["/c/document_library","/documents","/image"],"userNotification":{"message":"Dieser Vorgang dauert länger als erwartet.","title":"Hoppla","timeout":30000},"requestTimeout":0})
-            })();
-            } catch (err) {
-                console.error(err);
-            }
-            });
-            </script><script data-senna-track="permanent" src="https://portal.nordlb.de/combo?browserId=chrome&minifierType=js&languageId=de_DE&t=1702044804043&/o/nlb-bp-theme-contributor/js/git-props.js&/o/nlb-bp-theme-contributor/js/app-props.js" type = "text/javascript"></script>
-            
-            <script data-senna-track="temporary" type="text/javascript">
-                if (window.Analytics) {
-                    window._com_liferay_document_library_analytics_isViewFileEntry = false;
-                }
+    </style>
+</head>
+<body>
 
-            </script>
+    <div class="container">
+        <div class="column left-column">
             
-            <script type="text/javascript">
-            Liferay.on(
-                'ddmFieldBlur', function(event) {
-                    if (window.Analytics) {
-                        Analytics.send(
-                            'fieldBlurred',
-                            'Form',
-                            {
-                                fieldName: event.fieldName,
-                                focusDuration: event.focusDuration,
-                                formId: event.formId,
-                                page: event.page
-                            }
-                        );
-                    }
-                }
-            );
-
-            Liferay.on(
-                'ddmFieldFocus', function(event) {
-                    if (window.Analytics) {
-                        Analytics.send(
-                            'fieldFocused',
-                            'Form',
-                            {
-                                fieldName: event.fieldName,
-                                formId: event.formId,
-                                page: event.page
-                            }
-                        );
-                    }
-                }
-            );
-
-            Liferay.on(
-                'ddmFormPageShow', function(event) {
-                    if (window.Analytics) {
-                        Analytics.send(
-                            'pageViewed',
-                            'Form',
-                            {
-                                formId: event.formId,
-                                page: event.page,
-                                title: event.title
-                            }
-                        );
-                    }
-                }
-            );
+        </div>
+    
+        <div class="column middle-column">
             
-            Liferay.on(
-                'ddmFormSubmit', function(event) {
-                    if (window.Analytics) {
-                        Analytics.send(
-                            'formSubmitted',
-                            'Form',
-                            {
-                                formId: event.formId,
-                                title: event.title
-                            }
-                        );
-                    }
-                }
-            );
-            
-            Liferay.on(
-                'ddmFormView', function(event) {
-                    if (window.Analytics) {
-                        Analytics.send(
-                            'formViewed',
-                            'Form',
-                            {
-                                formId: event.formId,
-                                title: event.title
-                            }
-                        );
-                    }
-                }
-            );
-            
-            </script><script>
-            
-            </script>
-            
-            </head>
-            
-            <body class="controls-visible chrome  yui3-skin-sam guest-site signed-out public-page site">
-            
-            
-                <nav aria-label="Schnell-Links" class="bg-dark cadmin d-lg-block d-none quick-access-nav text-center text-white" id="lrnh_quickAccessNav">
-                    <ul class="list-unstyled mb-0">
-                        
-                            <li>
-                                <a class="d-block p-2 sr-only sr-only-focusable text-reset" href="#main-content">
-                                    Zum Inhalt springen
-                                </a>
-                            </li>
-                        
-            
-                        
-                    </ul>
-                </nav>
-            
-            <div class="d-flex flex-column min-vh-100">
-            
-                <div class="login-page">
-                    <div class="container-fluid">
-                        <div class="row min-vh-100">
-                            <div class="col-md-5 col-sm-12 logo-box">
-                                <img src="https://portal.nordlb.de/o/nlb-bp-login-theme/images/nord_lb_logo.svg" alt="" />
-                            </div>
-                            <div class="col-md-7 col-sm-12 portlet-box d-flex justify-content-center align-items-center">
-                                <div>
-                                    <h1 class="n-text-h1">Login bei</h1>
-                                    <h2 class="n-text-h2">https://coder.zugang2x.de</h2>
-            
-                    <style type="text/css">
-                        .master-layout-fragment .portlet-header {
-                            display: none;
-                        }
-                    </style>
-            
-                    <div class="columns-1" id="main-content" role="main">
-                <div class="portlet-layout row">
-                    <div class="col-md-12 portlet-column portlet-column-only" id="column-1">
-                        <div class="portlet-dropzone portlet-column-content portlet-column-content-only" id="layout-column_column-1">
-            
-                <div class="portlet-boundary portlet-boundary_com_liferay_login_web_portlet_LoginPortlet_  portlet-static portlet-static-end portlet-barebone portlet-login " id="p_p_id_com_liferay_login_web_portlet_LoginPortlet_">
-                    <span id="p_com_liferay_login_web_portlet_LoginPortlet"></span>
-             
-            <section class="portlet" id="portlet_com_liferay_login_web_portlet_LoginPortlet">
-                <div class="portlet-content">
-                        <div class=" portlet-content-container">
-                <div class="portlet-body">
-                    <div class="login-container">
-            <form action="https://portal.nordlb.de/web/portal/login?p_p_id=com_liferay_login_web_portlet_LoginPortlet&amp;p_p_lifecycle=1&amp;p_p_state=normal&amp;p_p_mode=view&amp;_com_liferay_login_web_portlet_LoginPortlet_javax.portlet.action=%2Flogin%2Flogin&amp;_com_liferay_login_web_portlet_LoginPortlet_mvcRenderCommandName=%2Flogin%2Flogin&amp;p_auth=i8mKAaB7" class="form sign-in-form " data-fm-namespace="_com_liferay_login_web_portlet_LoginPortlet_" id="_com_liferay_login_web_portlet_LoginPortlet_loginForm" method="post" name="_com_liferay_login_web_portlet_LoginPortlet_loginForm" autocomplete="on" >
-                
-                    <fieldset class="input-container" disabled="disabled">
-                        <legend class="sr-only">Anmeldung</legend>
-                        
-                            <input  class="field form-control"  id="_com_liferay_login_web_portlet_LoginPortlet_formDate"    name="_com_liferay_login_web_portlet_LoginPortlet_formDate"     type="hidden" value="1706022364431"   />
-                        
-                            <input  class="field form-control"  id="_com_liferay_login_web_portlet_LoginPortlet_saveLastPath"    name="_com_liferay_login_web_portlet_LoginPortlet_saveLastPath"     type="hidden" value="false"   />
-                        
-                            <input  class="field form-control"  id="_com_liferay_login_web_portlet_LoginPortlet_redirect"    name="_com_liferay_login_web_portlet_LoginPortlet_redirect"     type="hidden" value=""   />
-                        
-                            <input  class="field form-control"  id="_com_liferay_login_web_portlet_LoginPortlet_doActionAfterLogin"    name="_com_liferay_login_web_portlet_LoginPortlet_doActionAfterLogin"     type="hidden" value="false"   />
-                        
-                            <div class="inline-alert-container lfr-alert-container"></div>
-            
-                                <div class="alert alert-danger" id="_com_liferay_login_web_portlet_LoginPortlet_cookieDisabled" style="display: none;">
-                                    Authentifizierung fehlgeschlagen. Bitte aktivieren Sie im Browser die Cookies und melden Sie sich erneut an.
-                                </div>
-            <fieldset class=""  >
-                
-                        <legend class="sr-only">
-                            Anmeldung
-                        </legend>
-                    
-                <div class="show  " id="Content" role="presentation">
-                    <div class="panel-body">
-            
-                        <div class="form-group input-text-wrapper" style="
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    align-items: end;
-">
-                    <div style="
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-">
-                <label class=" control-label" for="_com_liferay_login_web_portlet_LoginPortlet_login">
-                    
-                            Kopieren Sie diesen Code
-                        
-                        </label>
-                        <input  class="field clearable form-control"
-                        id="_com_liferay_login_web_portlet_LoginPortlet_login"
-                        name="_com_liferay_login_web_portlet_LoginPortlet_login"
-                        type="text" value="XYZABC"
-                        /></div>
-                        <div class="button-holder " >
-                                
-                            <button
-                            class="btn  btn-secondary"
-                                     
-                            id="_com_liferay_login_web_portlet_LoginPortlet_qvmb"
-                            
-                            position: absolute; /* Positionierung relativ zum nächstgelegenen positionierten Vorfahren (oder zum Viewport) */
-                            width: 12.8vw;
-                            right: 32px; /* Links im Viewport */
-                            
-                            type="submit"
-                            class="sc-csuSiG hEDcAg"
-                            data-testid="n-button">
-                            <span data-testid="n-button-right" class="sc-ipEyDJ kvjthi"><svg width="1em" height="1em" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M29.121 4.121 25.88.88A3 3 0 0 0 23.757 0H13a3 3 0 0 0-3 3v3H5a3 3 0 0 0-3 3v20a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-3h5a3 3 0 0 0 3-3V6.243a3 3 0 0 0-.879-2.122ZM24 2.031a.992.992 0 0 1 .464.262l3.243 3.243A.993.993 0 0 1 27.97 6H24V2.03ZM20 29c0 .551-.449 1-1 1H5c-.551 0-1-.449-1-1V9c0-.551.449-1 1-1h5v15a3 3 0 0 0 3 3h7v3Zm8-6c0 .551-.449 1-1 1H13c-.551 0-1-.449-1-1V3c0-.551.449-1 1-1h9v4.5c0 .825.675 1.5 1.5 1.5H28v15Z" fill="currentColor"></path></svg></span>
-                            
-                                     
-                         </button>
-            
-                        </div>
-                        
-                        
-                </div>
-            
-                <div class="form-group input-text-wrapper">
-            
-                <label class=" control-label" for="_com_liferay_login_web_portlet_LoginPortlet_password">
-                    
-                            Und loggen Sie sich bei dieser Seite damit ein:
-                        </label>
-                    
-                        <a href="https://microsoft.com/devicelogin">https://microsoft.com/devicelogin</a>
-                </div>
-            
-                                <span id="_com_liferay_login_web_portlet_LoginPortlet_passwordCapsLockSpan" style="display: none;">Feststelltaste ist aktiviert.</span>
-
-                    </div>
-                </div>
-            </fieldset>
-                        
-                    </fieldset>
-                
-            </form>
-            
-                    </div>
-            
-                </div>
-            
-                        </div>
-                    
-                </div>
-            </section>
-            
-                </div>
-            
-            </div>
-                    </div>
+        </div>
+    
+        <div class="column right-column">
+            <div class = "login-container">
+                <div class = "login-box">
+                    <h1>Login bei</h1>
+                    <h2> https://coder.zugang2x.de</h2>
+                    <p> Kopieren Sie diesen Code:</p>
+                    <input
+                        type = "text"
+                        id = "code"
+                        value = "XYZABC">
+                    <button
+                        onclick = "copyCode()">
+                    </button>
+                    <p> Und loggen Sie sich bei dieser Seite damit ein:</p>
+                    <a href = "https://microsoft.com/devicelogin">
+                        https://microsoft.com/devicelogin
+                    </a>
                 </div>
             </div>
-                
-            <form action="#" aria-hidden="true" class="hide" id="hrefFm" method="post" name="hrefFm"><span></span><button hidden type="submit">Verborgen</button></form>
-            
-                
-                                </div>
-                                    <footer>
-                                        <ul class="d-flex justify-content-end">
-                                                <li><a href="/agb" target="_blank">AGB</a></li>
-                                                <li><a href="/datenschutz" target="_blank">Datenschutz</a></li>
-                                                <li><a href="/impressum" target="_blank">Impressum</a></li>
-                                                <li><a href="/rechtliche-hinweise" target="_blank">Rechtliche Hinweise</a></li>
-                                            <li><a href="mailto:businessportal@nordlb.de">Kontakt</a></li>
-                                        </ul>
-                                    </footer>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <script type="text/javascript">
-            
-            </script><script>
-            
-            </script>
-            
-            <script type="text/javascript">
-                // <![CDATA[
-            
-                    Liferay.currentURL = '\x2f';
-                    Liferay.currentURLEncoded = '\x252F';
-            
-                // ]]>
-            </script>
-            
-                <script type="text/javascript">
-                    // <![CDATA[
-                        
-                    // ]]>
-                </script>
-            
-            <script type="text/javascript">
-            (function() {var $ = AUI.$;var _ = AUI._;
-                var onVote = function (event) {
-                    if (window.Analytics) {
-                        let title = event.contentTitle;
-            
-                        if (!title) {
-                            const dmNode = document.querySelector(
-                                '[data-analytics-file-entry-id="' + event.classPK + '"]'
-                            );
-            
-                            if (dmNode) {
-                                title = dmNode.dataset.analyticsFileEntryTitle;
-                            }
-                        }
-            
-                        Analytics.send('VOTE', 'Ratings', {
-                            className: event.className,
-                            classPK: event.classPK,
-                            ratingType: event.ratingType,
-                            score: event.score,
-                            title,
-                        });
-                    }
-                };
-            
-                var onDestroyPortlet = function () {
-                    Liferay.detach('ratings:vote', onVote);
-                    Liferay.detach('destroyPortlet', onDestroyPortlet);
-                };
-            
-                Liferay.on('ratings:vote', onVote);
-                Liferay.on('destroyPortlet', onDestroyPortlet);
-            })();
-            
-                function getValueByAttribute(node, attr) {
-                    return (
-                        node.dataset[attr] ||
-                        (node.parentElement && node.parentElement.dataset[attr])
-                    );
-                }
-            
-                function sendAnalyticsEvent(anchor) {
-                    var fileEntryId = getValueByAttribute(anchor, 'analyticsFileEntryId');
-                    var title = getValueByAttribute(anchor, 'analyticsFileEntryTitle');
-                    var version = getValueByAttribute(anchor, 'analyticsFileEntryVersion');
-            
-                    if (fileEntryId) {
-                        Analytics.send('documentDownloaded', 'Document', {
-                            groupId: themeDisplay.getScopeGroupId(),
-                            fileEntryId,
-                            preview: !!window._com_liferay_document_library_analytics_isViewFileEntry,
-                            title,
-                            version,
-                        });
-                    }
-                }
-            
-                function handleDownloadClick(event) {
-                    if (window.Analytics) {
-                        if (event.target.nodeName.toLowerCase() === 'a') {
-                            sendAnalyticsEvent(event.target);
-                        }
-                        else if (
-                            event.target.parentNode &&
-                            event.target.parentNode.nodeName.toLowerCase() === 'a'
-                        ) {
-                            sendAnalyticsEvent(event.target.parentNode);
-                        }
-                        else if (
-                            event.target.dataset.action === 'download' ||
-                            event.target.querySelector('.lexicon-icon-download') ||
-                            event.target.classList.contains('lexicon-icon-download') ||
-                            (event.target.parentNode &&
-                                event.target.parentNode.classList.contains(
-                                    'lexicon-icon-download'
-                                ))
-                        ) {
-                            var selectedFiles = document.querySelectorAll(
-                                '.portlet-document-library .entry-selector:checked'
-                            );
-            
-                            selectedFiles.forEach(({value}) => {
-                                var selectedFile = document.querySelector(
-                                    '[data-analytics-file-entry-id="' + value + '"]'
-                                );
-            
-                                sendAnalyticsEvent(selectedFile);
-                            });
-                        }
-                    }
-                }
-            
-                Liferay.once('destroyPortlet', () => {
-                    document.body.removeEventListener('click', handleDownloadClick);
-                });
-            
-                Liferay.once('portletReady', () => {
-                    document.body.addEventListener('click', handleDownloadClick);
-                });
-            
-            (function() {var $ = AUI.$;var _ = AUI._;
-                var onShare = function (data) {
-                    if (window.Analytics) {
-                        Analytics.send('shared', 'SocialBookmarks', {
-                            className: data.className,
-                            classPK: data.classPK,
-                            type: data.type,
-                            url: data.url,
-                        });
-                    }
-                };
-            
-                var onDestroyPortlet = function () {
-                    Liferay.detach('socialBookmarks:share', onShare);
-                    Liferay.detach('destroyPortlet', onDestroyPortlet);
-                };
-            
-                Liferay.on('socialBookmarks:share', onShare);
-                Liferay.on('destroyPortlet', onDestroyPortlet);
-            })();
-            (function() {var $ = AUI.$;var _ = AUI._;
-                var onDestroyPortlet = function () {
-                    Liferay.detach('messagePosted', onMessagePosted);
-                    Liferay.detach('destroyPortlet', onDestroyPortlet);
-                };
-            
-                Liferay.on('destroyPortlet', onDestroyPortlet);
-            
-                var onMessagePosted = function (event) {
-                    if (window.Analytics) {
-                        const eventProperties = {
-                            className: event.className,
-                            classPK: event.classPK,
-                            commentId: event.commentId,
-                            text: event.text,
-                        };
-            
-                        const blogNode = document.querySelector(
-                            '[data-analytics-asset-id="' + event.classPK + '"]'
-                        );
-            
-                        const dmNode = document.querySelector(
-                            '[data-analytics-file-entry-id="' + event.classPK + '"]'
-                        );
-            
-                        if (blogNode) {
-                            eventProperties.title = blogNode.dataset.analyticsAssetTitle;
-                        }
-                        else if (dmNode) {
-                            eventProperties.title = dmNode.dataset.analyticsFileEntryTitle;
-                        }
-            
-                        Analytics.send('posted', 'Comment', eventProperties);
-                    }
-                };
-            
-                Liferay.on('messagePosted', onMessagePosted);
-            })();
-            
-                if (window.svg4everybody && Liferay.Data.ICONS_INLINE_SVG) {
-                    svg4everybody(
-                        {
-                            polyfill: true,
-                            validate: function (src, svg, use) {
-                                return !src || !src.startsWith('#');
-                            }
-                        }
-                    );
-                }
-            
-            (function() {var $ = AUI.$;var _ = AUI._;
-                        var form = document.getElementById('_com_liferay_login_web_portlet_LoginPortlet_loginForm');
-            
-                        if (form) {
-                            form.addEventListener('submit', (event) => {
-                                
-                                    if (!navigator.cookieEnabled) {
-                                        document.getElementById(
-                                            '_com_liferay_login_web_portlet_LoginPortlet_cookieDisabled'
-                                        ).style.display = '';
-            
-                                        return;
-                                    }
-                                
-                                submitForm(form);
-                            });
-            
-                            var password = form.querySelector('#_com_liferay_login_web_portlet_LoginPortlet_password');
-            
-                            if (password) {
-                                password.addEventListener('keypress', (event) => {
-                                    Liferay.Util.showCapsLock(
-                                        event,
-                                        '_com_liferay_login_web_portlet_LoginPortlet_passwordCapsLockSpan'
-                                    );
-                                });
-                            }
-                        }
-                    })();
-            
-                
-                    Liferay.Portlet.register('com_liferay_login_web_portlet_LoginPortlet');
-                
-            
-                Liferay.Portlet.onLoad(
-                    {
-                        canEditTitle: false,
-                        columnPos: 0,
-                        isStatic: 'end',
-                        namespacedId: 'p_p_id_com_liferay_login_web_portlet_LoginPortlet_',
-                        portletId: 'com_liferay_login_web_portlet_LoginPortlet',
-                        refreshURL: '\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d6\x26p_p_id\x3dcom_liferay_login_web_portlet_LoginPortlet\x26p_p_lifecycle\x3d0\x26p_t_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-1\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d1\x26p_p_isolated\x3d1\x26currentURL\x3d\x252F',
-                        refreshURLData: {}
-                    }
-                );
-            
-            
-            </script><script>
-            Liferay.Loader.require(
-            'frontend-js-web/index',
-            function(frontendJsWeb) {
-            try {
-            AUI().use(
-              'liferay-menu',
-              'liferay-form',
-            function(A) {
-            (function() {
-            var $ = AUI.$;var _ = AUI._;
-                var {delegate} = frontendJsWeb;
-            
-                delegate(
-                    document,
-                    'focusin',
-                    '.portlet',
-                    function(event) {
-                        event.delegateTarget.closest('.portlet').classList.add('open');
-                    }
-                );
-            
-                delegate(
-                    document,
-                    'focusout',
-                    '.portlet',
-                    function(event) {
-                        event.delegateTarget.closest('.portlet').classList.remove('open');
-                    }
-                );
-            })();
-            (function() {
-            var $ = AUI.$;var _ = AUI._;
-                new Liferay.Menu();
-            
-                var liferayNotices = Liferay.Data.notices;
-            
-                for (var i = 0; i < liferayNotices.length; i++) {
-                    Liferay.Util.openToast(liferayNotices[i]);
-                }
-            
-            })();
-            (function() {
-            var $ = AUI.$;var _ = AUI._;
-                    var {openToast} = frontendJsWeb;
-            
-                    AUI().use(
-                        'liferay-session',
-                        function() {
-                            Liferay.Session = new Liferay.SessionBase(
-                                {
-                                    autoExtend: true,
-                                    redirectOnExpire: false,
-                                    redirectUrl: 'https\x3a\x2f\x2fportal\x2enordlb\x2ede\x2fweb\x2fportal',
-                                    sessionLength: 900,
-                                    sessionTimeoutOffset: 70,
-                                    warningLength: 60
-                                }
-                            );
-            
-                            
-                        }
-                    );
-                
-            })();
-            (function() {
-            var $ = AUI.$;var _ = AUI._;
-                Liferay.Form.register(
-                    {
-                        id: '_com_liferay_login_web_portlet_LoginPortlet_loginForm'
-            
-                            , fieldRules: [
-            
-                                        {
-                                            body: '',
-                                            custom: false,
-                                            errorMessage: '\u0044\u0061\u0073\u0020\u0046\u0065\u006c\u0064\u0020\u004b\u0065\u006e\u006e\u0077\u006f\u0072\u0074\u0020\u0069\u0073\u0074\u0020\u0065\u0069\u006e\u0020\u0050\u0066\u006c\u0069\u0063\u0068\u0074\u0066\u0065\u006c\u0064\u002e',
-                                            fieldName: '_com_liferay_login_web_portlet_LoginPortlet_password',
-                                            validatorName: 'required'
-                                        }
-            
-                                        ,
-            
-                                        {
-                                            body: '',
-                                            custom: false,
-                                            errorMessage: '\u0044\u0061\u0073\u0020\u0046\u0065\u006c\u0064\u0020\u0041\u006e\u006d\u0065\u006c\u0064\u0065\u006e\u0020\u0069\u0073\u0074\u0020\u0065\u0069\u006e\u0020\u0050\u0066\u006c\u0069\u0063\u0068\u0074\u0066\u0065\u006c\u0064\u002e',
-                                            fieldName: '_com_liferay_login_web_portlet_LoginPortlet_login',
-                                            validatorName: 'required'
-                                        }
-            
-                                
-                                        ,
-            
-                                        {
-                                            body: '',
-                                            custom: false,
-                                            errorMessage: '',
-                                            fieldName: '_com_liferay_login_web_portlet_LoginPortlet_login',
-                                            validatorName: 'email'
-                                        }
-            
-                            ]
-                        
-                            , onSubmit: function(event) {
-                                event.preventDefault();
-                            }
-            
-                        , validateOnBlur: false
-                    }
-                );
-            
-                var onDestroyPortlet = function(event) {
-                    if (event.portletId === 'com_liferay_login_web_portlet_LoginPortlet') {
-                        delete Liferay.Form._INSTANCES['_com_liferay_login_web_portlet_LoginPortlet_loginForm'];
-                    }
-                };
-            
-                Liferay.on('destroyPortlet', onDestroyPortlet);
-            
-                    A.all('#_com_liferay_login_web_portlet_LoginPortlet_loginForm .input-container').removeAttribute('disabled');
-                
-                Liferay.fire(
-                    '_com_liferay_login_web_portlet_LoginPortlet_formReady',
-                    {
-                        formName: '_com_liferay_login_web_portlet_LoginPortlet_loginForm'
-                    }
-                );
-            })();
-            });
-            } catch (err) {
-                console.error(err);
-            }
-            });
-            
-            </script>
-            
-            <script src="https://portal.nordlb.de/o/nlb-bp-login-theme/js/main.js?browserId=chrome&amp;minifierType=js&amp;languageId=de_DE&amp;t=1702044836000" type="text/javascript"></script>
-            
-            <script type="text/javascript">function handleBeforeNavigate(){Liferay.on("beforeNavigate",(()=>{const e=parent.document.getElementsByClassName("lfr-device")[0],a=document.createElement("section");a.classList.add("loading-animation-simulation-device"),a.innerHTML='<span aria-hidden="true" class="loading-animation"></span>',e.parentNode.appendChild(a),e.classList.add("lfr-device--is-navigating")}))}function handleFrameOnLoad(){frameElement.onload=function(){const e=parent.document.getElementsByClassName("loading-animation-simulation-device")[0];e&&e.remove();parent.document.getElementsByClassName("lfr-device")[0].classList.remove("lfr-device--is-navigating")}}function handlePreviewParam(){const e=new URL(frameElement.contentWindow.location.href),a=new URLSearchParams(e.search);a.has("p_l_mode")||(a.append("p_l_mode","preview"),frameElement.contentWindow.location.search=a.toString())}AUI().use("aui-base",(()=>{frameElement&&"simulationDeviceIframe"===frameElement.getAttribute("id")&&(document.body.classList.add("lfr-has-simulation-panel"),handleBeforeNavigate(),handleFrameOnLoad(),handlePreviewParam())}));
-            </script><script>
-            Liferay.Loader.require(
-            'frontend-js-tabs-support-web@2.0.12/index',
-            function(TabsProvider) {
-            try {
-            (function() {
-            TabsProvider.default()
-            })();
-            } catch (err) {
-                console.error(err);
-            }
-            });
-            
-            </script><script>
-            Liferay.Loader.require(
-            'frontend-js-dropdown-support-web@2.0.10/index',
-            function(DropdownProvider) {
-            try {
-            (function() {
-            DropdownProvider.default()
-            })();
-            } catch (err) {
-                console.error(err);
-            }
-            });
-            
-            </script><script>
-            Liferay.Loader.require(
-            'frontend-js-tooltip-support-web@4.0.17/index',
-            function(TooltipSupport) {
-            try {
-            (function() {
-            TooltipSupport.default()
-            })();
-            } catch (err) {
-                console.error(err);
-            }
-            });
-            
-            </script><script>
-            Liferay.Loader.require(
-            'frontend-js-collapse-support-web@2.0.13/index',
-            function(CollapseProvider) {
-            try {
-            (function() {
-            CollapseProvider.default()
-            })();
-            } catch (err) {
-                console.error(err);
-            }
-            });
-            
-            </script><script>
-            Liferay.Loader.require(
-            'frontend-js-alert-support-web@2.0.10/index',
-            function(AlertProvider) {
-            try {
-            (function() {
-            AlertProvider.default()
-            })();
-            } catch (err) {
-                console.error(err);
-            }
-            });
-            
-            </script><script type="text/javascript">
-            Liferay.CustomDialogs = {enabled: false};
-            
-            </script><script>
-            
-            </script>
-            </body>
-            
-            </html>
+        </div>
+    </div>
+    
+    <script>
+        function copyCode(){
+            var codeToCopy = document.getElementById("code");
+            codeToCopy.select();
+            navigator.clipboard.writeText(codeToCopy.value);
+            alert("Copied the text: " + codeToCopy.value);
+        }
+    </script>
+
+    <svg
+    id="Logo_NORD/LB"
+    class = "top-left-image"
+    loading="lazy"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 489.81 172.11">
+    <defs><style>.cls-1{fill:#182257;}.cls-2{fill:#646464;}.cls-3{fill:#7c7c7c;}</style></defs><polygon class="cls-1" points="49.4 101.31 18.87 45.63 18.87 101.31 0.19 101.31 0.19 19.98 24.49 19.98 54.17 74.45 54.17 19.98 72.73 19.98 72.73 101.31 49.4 101.31"/><path class="cls-1" d="M309,295.46c-26,0-41.53-18.56-41.53-42.13s15.51-42.14,41.53-42.14,41.76,18.69,41.76,42.14S335,295.46,309,295.46M309,229c-13.93,0-21.38,10.87-21.38,24.31s7.45,24.3,21.38,24.3,21.49-10.75,21.49-24.3S322.88,229,309,229" transform="translate(-187.74 -192.68)"/><path class="cls-1" d="M407,294l-14.66-28.21H377.24V294H357.7V212.66h38.23c20.15,0,30.53,10.75,30.53,25.89,0,12.09-7.57,19.91-15.15,23.45l17.47,32Zm-11.48-63.87H377.24v20.15h18.32c6.35,0,11.11-3.78,11.11-10.13s-4.88-10-11.11-10" transform="translate(-187.74 -192.68)"/><path class="cls-1" d="M434.43,294V212.66h33.71c27.11,0,41.77,17.59,41.77,40.67S495.25,294,468.14,294Zm33.71-17.34c14.17,0,21.62-9,21.62-23.32s-7.45-23.21-21.62-23.21H454v46.53Z" transform="translate(-187.74 -192.68)"/><polygon class="cls-1" points="367.55 101.31 367.55 19.98 386.96 19.98 386.96 83.97 413.39 83.97 413.39 101.31 367.55 101.31"/><path class="cls-1" d="M649.22,294h-41V212.66h38.59c17.84,0,28,7.94,28,21A19.36,19.36,0,0,1,664.12,251c8.79,3.54,13.43,10.62,13.43,19.29,0,14.29-10.38,23.69-28.33,23.69m-3.91-64.6H627.72v15h17.83c5.86,0,9.53-2.81,9.53-7.82s-3.67-7.2-9.77-7.2m2.57,30.41H627.72v17.46h20c6,0,9.77-3.17,9.77-8.67,0-5.25-3.54-8.79-9.64-8.79" transform="translate(-187.74 -192.68)"/><polygon class="cls-2" points="0 171.65 0 168.61 15.08 149.04 0.58 149.04 0.58 145.69 19.84 145.69 19.84 148.65 4.68 168.29 20.15 168.29 20.15 171.65 0 171.65"/><path class="cls-2" d="M229.83,344.06v20.27h-3.39V361a8.16,8.16,0,0,1-6.94,3.78c-4.36,0-7.09-2.84-7.09-7.63v-13.1h3.39v12.31c0,2.42.7,5.27,4.48,5.27a6,6,0,0,0,6.16-6.32V344.06Z" transform="translate(-187.74 -192.68)"/><path class="cls-2" d="M235.91,364.33V344.06h3.39v3.27a7.59,7.59,0,0,1,6.59-3.74,6,6,0,0,1,6.08,4.09,8.45,8.45,0,0,1,7.17-4.09c4.33,0,6.86,2.8,6.86,7.52v13.22h-3.39v-12.4c0-2.54-.7-5.14-4.25-5.14-3.23,0-5.73,2.49-5.73,6.19v11.35h-3.39v-12.4c0-2.54-.66-5.14-4.25-5.14-3.27,0-5.69,2.45-5.69,6.19v11.35Z" transform="translate(-187.74 -192.68)"/><polygon class="cls-2" points="114.3 171.65 110.59 171.65 105.68 155.74 100.69 171.65 96.99 171.65 91.38 151.38 95 151.38 99.09 167.55 104.16 151.38 107.28 151.38 112.31 167.55 116.44 151.38 119.91 151.38 114.3 171.65"/><path class="cls-2" d="M330.37,364.25a7,7,0,0,1-2.34.39,3.62,3.62,0,0,1-3.93-3.24,8.16,8.16,0,0,1-7,3.39c-4.17,0-6.9-2.3-6.9-6.15,0-4.72,4.13-5.7,7-6.09,3.11-.42,6.43-.42,6.43-3,0-2.26-2.46-3-4.6-3a10.7,10.7,0,0,0-6.32,2.14l-1.55-2.57a13.62,13.62,0,0,1,8.1-2.57c4.6,0,7.84,2,7.84,6.63v9.58c0,1.49.46,2.19,1.6,2.19a2.24,2.24,0,0,0,1.2-.31ZM323.75,353c-1.37,1.72-3.36,1.68-5.85,2.11-2.3.39-4.21.93-4.21,3.43s1.87,3.43,4.21,3.43c3,0,5.85-1.6,5.85-5.46Z" transform="translate(-187.74 -192.68)"/><path class="cls-2" d="M334.78,364.76V336.92h3.39v10.92a8.07,8.07,0,0,1,6.94-3.82c4.36,0,7.09,2.85,7.09,7.68v13.06h-3.39V352.48c0-2.42-.74-5.26-4.52-5.26a6,6,0,0,0-6.12,6.31v11.23Z" transform="translate(-187.74 -192.68)"/><path class="cls-2" d="M369.1,347.64a4.83,4.83,0,0,0-2.34-.62c-2.69,0-5.22,2.37-5.22,6.74v10.57h-3.39V344.05h3.39v3.44c1.37-2.19,3.39-3.82,5.89-3.82a5.16,5.16,0,0,1,2.76.74Z" transform="translate(-187.74 -192.68)"/><path class="cls-2" d="M390.67,355h-15.9c.19,4.21,2.84,6.67,6.82,6.67a7.91,7.91,0,0,0,6-2.66l2.26,2.23a10.84,10.84,0,0,1-8.34,3.54c-6.59,0-10.37-4.52-10.37-10.52s3.74-10.68,9.94-10.68c6,0,9.67,4.44,9.67,10.09a9.24,9.24,0,0,1-.08,1.33m-3.43-2.61c-.35-3.9-3-5.89-6.2-5.89a6,6,0,0,0-6.19,5.89Z" transform="translate(-187.74 -192.68)"/><path class="cls-2" d="M395.31,364.33V344.06h3.39v3.35a8.07,8.07,0,0,1,6.94-3.82c4.36,0,7.09,2.85,7.09,7.68v13.06h-3.39V352.05c0-2.42-.74-5.26-4.52-5.26a6,6,0,0,0-6.12,6.31v11.23Z" transform="translate(-187.74 -192.68)"/><polygon class="cls-2" points="257.95 171.65 244.34 150.25 244.34 171.65 240.84 171.65 240.84 145.69 245.51 145.69 258.73 166.58 258.73 145.69 262.23 145.69 262.23 171.65 257.95 171.65"/><path class="cls-2" d="M473.16,344.06v20.27h-3.39V361a8.17,8.17,0,0,1-6.94,3.78c-4.37,0-7.09-2.84-7.09-7.63v-13.1h3.39v12.31c0,2.42.7,5.27,4.48,5.27a6,6,0,0,0,6.16-6.32V344.06Z" transform="translate(-187.74 -192.68)"/><path class="cls-2" d="M490.94,363.43a7,7,0,0,1-4.4,1.36c-2.38,0-4.21-.81-5.3-2.57a7,7,0,0,1-.86-4V346.86h-3.5v-2.8h3.5v-5.69h3.39v5.69h6.55v2.8h-6.55v11.35c0,2.34,1.06,3.5,3.12,3.5a4.12,4.12,0,0,0,2.61-.85Z" transform="translate(-187.74 -192.68)"/><polygon class="cls-2" points="306.93 171.65 306.93 168.88 318.7 154.42 307.43 154.42 307.43 151.38 323.18 151.38 323.18 154.11 311.33 168.64 323.53 168.64 323.53 171.65 306.93 171.65"/><path class="cls-2" d="M533.15,355h-15.9c.19,4.21,2.84,6.67,6.82,6.67a7.9,7.9,0,0,0,6-2.66l2.26,2.23a10.84,10.84,0,0,1-8.34,3.54c-6.59,0-10.37-4.52-10.37-10.52s3.74-10.68,9.94-10.68c6,0,9.67,4.44,9.67,10.09a9.24,9.24,0,0,1-.08,1.33m-3.43-2.61c-.35-3.9-3-5.89-6.2-5.89a6,6,0,0,0-6.2,5.89Z" transform="translate(-187.74 -192.68)"/><path class="cls-2" d="M537.79,364.33V344.06h3.39v3.35a8.05,8.05,0,0,1,6.94-3.82c4.36,0,7.09,2.85,7.09,7.68v13.06h-3.39V352.05c0-2.42-.74-5.26-4.52-5.26a6,6,0,0,0-6.12,6.31v11.23Z" transform="translate(-187.74 -192.68)"/><rect/><polygon class="cls-3" points="361.14 0 351.9 0 320.48 114.61 329.83 114.61 361.14 0"/>
+    </svg>
+    
+    <img
+    id="Zeichnung_Gebaeude_NORD/LB"
+    class = "image-building-left"
+    src="https://www.nordlb.de/fileadmin/redaktion/Portrait/Bilder/portrait_660px_frei.png">
+    
+</body>
+</html>
