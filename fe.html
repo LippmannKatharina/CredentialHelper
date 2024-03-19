@@ -9,6 +9,13 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-image: url('https://www.pixelstalk.net/wp-content/uploads/2016/04/Fantasy-wallpapers-HD.jpg');
+            /*background-size: cover; /* Bildgröße anpassen */
+            /*background-position: center; /* Bildposition zentrieren */
+            width: 100vw; /* Volle Bildschirmhöhe */
+            /*display: flex; /* Flex-Container für zentrierte Ausrichtung */
+            justify-content: center; /* Horizontal zentrieren */
+            align-items: center; /* Vertikal zentrieren */
         }
 
         .video-grid {
@@ -20,14 +27,16 @@
         }
 
         .video-item {
-            border: 1px solid #ccc;
             padding: 10px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
 
         .video-item iframe {
             width: 100%; /* 100% Breite innerhalb der Kachel */
             height: 200px;
+            border-style: inset;
+            border-color: #994D1C;
+            border-width: 5px;
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
@@ -52,13 +61,12 @@
                 videoItem.classList.add('video-item');
 
                 const videoEmbed = document.createElement('iframe');
-                videoEmbed.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1`;
+                videoEmbed.src = `https://www.youtube.com/embed/${videoId}?&loop=1&playlist=${videoId}`;
                 videoEmbed.title = videoTitle;
-                videoEmbed.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                videoEmbed.allow = 'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; loop';
                 videoEmbed.allowFullscreen = true;
 
-                const titleElement = document.createElement('h3');
-                titleElement.textContent = videoTitle;
+                const titleElement = document.createElement('h4');
 
                 const descriptionElement = document.createElement('p');
 
