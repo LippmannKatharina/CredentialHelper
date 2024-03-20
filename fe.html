@@ -10,24 +10,24 @@
             margin: 0 auto; /* Horizontal zentrieren */
             padding: 0;
             background-image: url('https://www.pixelstalk.net/wp-content/uploads/2016/04/Fantasy-wallpapers-HD.jpg');
-            /*background-size: cover; /* Bildgröße anpassen */
-            /*background-position: center; /* Bildposition zentrieren */
-            width: 100vw; /* Volle Bildschirmbreite */
-            /*display: flex; /* Flex-Container für zentrierte Ausrichtung */
+            width: 99vw; /* Volle Bildschirmbreite */
             justify-content: center; /* Horizontal zentrieren */
             align-items: center; /* Vertikal zentrieren */
+            max-width: 100vw;
         }
 
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(4, minmax(22vw, 1fr)); /* Spalten */
-            gap: 20px;
-            padding: 20px;
-            max-width: 13vw;
+            grid-template-columns: repeat(4, minmax(23.1vw, auto)); /* Spalten */
+            gap: 1.5vw;
+            padding: 0.5vw;
+            max-width: 15vw;
+            align-self: center;
         }
 
         .video-item {
             padding: 2.5px;
+            max-height: 20vh;
         }
 
         .video-item iframe {
@@ -45,7 +45,8 @@
 
     <script>
         const API_KEY = 'AIzaSyByh7czGTAzbdzuKOBvaFVHr8lSQ2RmdeU'; // Dein API-Schlüssel hier
-        const videos = ['Jikm8CCRbdM', 'WOtNqISrpyY', '82Qm3a3ngug', 'TZSA5HbOIEA', '4Y6n-1XQSfE', 'ddMSMwKQkKI', '6H2JbT4BRDU', '8Q7cioftmKs', '2GX9lVHfnxs', 'KZNoPUbaVnk']; // Video-IDs hier
+        const videos = ['Jikm8CCRbdM', 'TZSA5HbOIEA', '4Y6n-1XQSfE', 'ddMSMwKQkKI', '6H2JbT4BRDU', '8Q7cioftmKs', '2GX9lVHfnxs', 'KZNoPUbaVnk',  '82Qm3a3ngug', 'dxwJuo_KejY', 	'u_Egrjv-TYI', 'orgikrTCKTc', 'eb73_mE0S-k', '5Y-PFMU_NiM', 'xvR8LRha7Uk', 'mWT11B_-sjQ', 'wz4gTbWZmq0', '_rj_7rrgq9s']; // Video-IDs hier
+        /* '8Q7cioftmKs', '2GX9lVHfnxs', 'KZNoPUbaVnk',  '82Qm3a3ngug', 'dxwJuo_KejY', 	'u_Egrjv-TYI', 'orgikrTCKTc', 'eb73_mE0S-k', '5Y-PFMU_NiM', 'xvR8LRha7Uk', 'mWT11B_-sjQ', 'wz4gTbWZmq0', '_rj_7rrgq9s'*/
 
         async function fetchAndEmbedVideos() {
             const videoGrid = document.getElementById('video-grid');
